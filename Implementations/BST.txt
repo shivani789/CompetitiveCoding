@@ -1,0 +1,62 @@
+Deletion of Node in BST
+
+tree* deleteNode(tree *root, ll data)
+{
+    if(root == NULL) return root;
+    else if(data < root->data) root->left = deleteNode(root->left,data);
+    else if(data > root->data) root->right = deleteNode(root->right,data);
+    else {
+        if(root->left == NULL && root->right == NULL){
+            delete root;
+            root = NULL;
+            return root;
+        }
+        else if(root->left == NULL){
+            tree *temp = root;
+            root = root->right;
+            delete temp;
+            return root;
+        }
+        else if(root->right == NULL){
+            tree *temp = root;
+            root = root->left;
+            delete temp;
+            return root;
+        }
+        else {
+            tree *temp = root->right;
+            while(temp->left != NULL) temp = temp->left;
+            root->data = temp->data;
+            root->right = deleteNode(root->right,root->data);
+            return root;
+        }
+    }
+}
+
+https://www.geeksforgeeks.org/in-place-convert-bst-into-a-min-heap/
+
+https://www.geeksforgeeks.org/sorted-linked-list-to-balanced-bst/	
+
+https://www.geeksforgeeks.org/sorted-array-to-balanced-bst/
+
+https://www.geeksforgeeks.org/check-given-array-can-represent-level-order-traversal-binary-search-tree/
+
+Kth smallest Element in BST
+Kth largest element in BST
+Dono ki kaafi approach hai
+
+https://www.geeksforgeeks.org/count-pairs-from-two-bsts-whose-sum-is-equal-to-a-given-value-x/
+
+https://www.geeksforgeeks.org/print-bst-keys-in-the-given-range/
+
+Trim a BST in given range
+
+https://www.geeksforgeeks.org/count-bst-nodes-that-are-in-a-given-range/
+
+https://www.geeksforgeeks.org/inorder-predecessor-successor-given-key-bst/
+
+https://www.geeksforgeeks.org/find-if-there-is-a-triplet-in-bst-that-adds-to-0/
+
+https://www.geeksforgeeks.org/find-if-there-is-a-triplet-in-bst-that-adds-to-0/
+
+https://www.geeksforgeeks.org/construct-bst-given-level-order-traversal/
